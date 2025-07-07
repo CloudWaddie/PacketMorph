@@ -55,7 +55,7 @@ const server = net.createServer((socket) => {
             
             // Generate response using the Google GenAI API
             const prompt = fs.readFileSync(path.join(__dirname, 'prompt.txt'), 'utf-8');
-            const response = await ai.models.generateContent({model: 'gemini-2.5-pro', contents: prompt + rawRequest});
+            const response = await ai.models.generateContent({model: 'gemini-2.0-flash', contents: prompt + rawRequest});
             socket.write(response.text);
             socket.end(); // Close the connection after sending response
         }
